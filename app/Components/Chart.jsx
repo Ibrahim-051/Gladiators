@@ -12,41 +12,16 @@ import {
 } from "recharts";
 
 const data = [
-  {
-    month: "January",
-    Gym: 12,
-    Pool: 18,
-    Yoga: 30,
-  },
-  {
-    month: "February",
-    Gym: 20,
-    Pool: 10,
-    Yoga: 10,
-  },
-  {
-    month: "March",
-    Gym: 15,
-    Pool: 25,
-    Yoga: 70,
-  },
-  {
-    month: "April",
-    Gym: 25,
-    Pool: 25,
-    Yoga: 70,
-  },
-  {
-    month: "May",
-    Gym: 35,
-    Pool: 35,
-    Yoga: 70,
-  },
+  { month: "January", Gym: 12, Pool: 18, Yoga: 30 },
+  { month: "February", Gym: 20, Pool: 10, Yoga: 10 },
+  { month: "March", Gym: 15, Pool: 25, Yoga: 70 },
+  { month: "April", Gym: 25, Pool: 25, Yoga: 70 },
+  { month: "May", Gym: 35, Pool: 35, Yoga: 70 },
 ];
 
 export default function FitnessAreaChart() {
   return (
-    <div className="w-[70%] h-[350px]  bg-black p-6 rounded-lg">
+    <div className="w-full max-w-4xl aspect-[16/9] bg-black p-6 rounded-lg">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           data={data}

@@ -63,29 +63,54 @@ const timelineItems = [
 
 export default function GymTimeline() {
   return (
-    <div className="relative py-10 px-20  text-white border-y-[1px] border-yellow-800">
-      {/* Vertical Line */}
-      <div className="absolute left-1/2 top-0 h-full w-1 bg-yellow-500 transform -translate-x-1/2 z-0" />
-
+    <div className="relative py-10 px-5 md:px-20 text-white border-y border-yellow-800">
       {/* Timeline Items */}
       <div className="max-w-6xl mx-auto relative z-10">
         {timelineItems.map((item, index) => (
           <div
             key={index}
-            className={`flex flex-col md:flex-row items-center my-10 ${
-              item.side === "left" ? "md:flex-row-reverse" : ""
-            }`}
+            className={`
+              flex flex-col md:flex-row items-center my-10
+              ${
+                item.side === "left"
+                  ? "md:flex-row-reverse md:text-right"
+                  : "md:text-left"
+              }
+              text-center md:text-center
+            `}
           >
             {/* Text Section */}
-            <div className="md:w-1/2 px-5 text-center md:text-right md:pr-10">
+            <div className="md:w-1/2 px-5 relative">
               <h2 className="text-2xl font-semibold">{item.title}</h2>
               <p className="mt-2 text-sm text-gray-300">{item.desc}</p>
+
+              {/* Vertical line + icon for left side */}
+              {item.side === "left" && (
+                <div className="hidden md:flex flex-col items-center absolute top-0 right-[-60px] h-full">
+                  <div className="w-[2px] bg-yellow-500 flex-grow opacity-50"></div>
+                  <div className="w-12 h-12 bg-yellow-500 bg-opacity-30 rounded-full flex items-center justify-center text-yellow-400 text-xl font-bold -translate-y-6 shadow-lg">
+                    {item.icon}
+                  </div>
+                  <div className="w-[2px] bg-yellow-500 flex-grow opacity-50"></div>
+                </div>
+              )}
             </div>
-            {/* Icon Section */}
-            <div className="relative z-10 w-12 h-12 flex items-center justify-center bg-yellow-400 text-black text-xl font-bold rounded transform rotate-45 mx-4 shadow-lg">
-              <div className="transform -rotate-45">{item.icon}</div>
+
+            {/* Vertical line + icon for right side */}
+            {item.side === "right" && (
+              <div className="hidden md:flex flex-col items-center relative md:w-12 mx-4">
+                <div className="w-[2px] bg-yellow-500 flex-grow opacity-50"></div>
+                <div className="w-12 h-12 bg-yellow-500 bg-opacity-30 rounded-full flex items-center justify-center text-yellow-400 text-xl font-bold -translate-y-6 shadow-lg">
+                  {item.icon}
+                </div>
+                <div className="w-[2px] bg-yellow-500 flex-grow opacity-50"></div>
+              </div>
+            )}
+
+            {/* On mobile, just show icon below text */}
+            <div className="md:hidden mt-4 flex justify-center text-yellow-400 text-xl font-bold">
+              {item.icon}
             </div>
-            {/* Right Text */}
           </div>
         ))}
       </div>
