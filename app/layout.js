@@ -17,7 +17,7 @@ export const metadata = {
   title: "Gladiators",
   description: "Gladiators Gym by Ibrahim",
   icons: {
-    icon: "/img1.png", // or "/favicon.png" if you're using PNG
+    icon: "/img1.png", 
   },
 };
 

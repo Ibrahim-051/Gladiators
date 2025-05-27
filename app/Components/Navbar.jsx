@@ -22,7 +22,7 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
-  // fixed
+  
   return (
     <div
       className={`fixed  flex justify-between top-0 left-0 w-full px-6 py-4 
